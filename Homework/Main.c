@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
+//helper fucntion defenitions
 void trig(int left, int right);
 
-void op1()
+void op1()//first option func
 {
 	int left, right;
 	printf("Enter 2 numbers (left and right):\n");
@@ -14,9 +15,12 @@ void op1()
 		trig(left, right);
 }
 
-void op2()
+void op2()//second option func
 {
-	return;
+	unsigned long int id;
+	int sum = 0;
+	scanf("%u",&id);
+
 }
 
 void op3()
@@ -29,7 +33,7 @@ void op4()
 	return;
 }
 
-void trig(int left, int right)
+void trig(int left, int right)//calculate triangulat numbers between 2 numbers
 {
 	int n = 1, found = 0, Tn;
 	do
@@ -42,7 +46,7 @@ void trig(int left, int right)
 		}
 		n++;
 	} while (!(Tn > right));
-	if (found == 0)
+	if (!found)
 	{
 		printf("None\n");
 	}
@@ -69,7 +73,10 @@ int main()
 		case 4:
 			op4();
 			break;
+		case -1:
+			break;
 		default:
+			printf("No such option!\n");
 			break;
 		}
 	} while (a!=-1);
