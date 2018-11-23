@@ -18,9 +18,23 @@ void op1()//first option func
 void op2()//second option func
 {
 	unsigned long int id;
-	int sum = 0;
+	int sum = 0, temp, ticker = 0;
 	scanf("%u",&id);
-
+	while (id!=0)
+	{
+		temp = id % 10;
+		id = id / 10;
+		temp *= (ticker + 1);
+		if (temp >= 10)
+			sum += (temp / 10) + (temp % 10);
+		else
+			sum += temp;
+		ticker = !ticker;
+	}
+	if (sum % 10 == 0)
+		printf("Valid ID number\n");
+	else
+		printf("Invalid ID number\n");
 }
 
 void op3()
