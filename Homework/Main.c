@@ -84,6 +84,7 @@ void trig(int left, int right)//calculate triangulat numbers between 2 numbers
 	}
 }
 
+//rug pattern 1
 void rug1(int width)
 {
 	int i, j;
@@ -91,7 +92,7 @@ void rug1(int width)
 	{
 		for (j = 0; j < width; j++)
 		{
-			if (i % 2 == 0 && j % 2 == 0)
+			if ((i % 2 == 0 && j % 2 == 0) || (!(i % 2 == 0) && !(j % 2 == 0)))
 				printf("X");
 			else
 				printf("O");
@@ -102,6 +103,7 @@ void rug1(int width)
 	return;
 }
 
+//rug pattern 2
 void rug2(int width)
 {
 	int i,j;
@@ -121,6 +123,7 @@ void rug2(int width)
 	return;
 }
 
+//rug pattern 3
 void rug3(int width)
 {
 	int i, j;
