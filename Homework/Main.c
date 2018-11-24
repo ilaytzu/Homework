@@ -52,7 +52,7 @@ void op3()
 	{
 		rug1(width);
 		rug2(width);
-		if (width % 2 == 1)
+		if (width % 2 == 0)
 			rug3(width);
 	}
 	else
@@ -98,6 +98,7 @@ void rug1(int width)
 		}
 		printf("\n");
 	}
+	printf("\n");
 	return;
 }
 
@@ -116,11 +117,25 @@ void rug2(int width)
 		}
 		printf("\n");
 	}
+	printf("\n");
 	return;
 }
 
 void rug3(int width)
 {
+	int i, j;
+	for (i = 0; i < width; i++)
+	{
+		for (j = 0; j < width; j++)
+		{
+			if ((i >= width / 2 || j >= width / 2) && !(i >= width / 2 && j >= width / 2))
+				printf("O");
+			else
+				printf("X");
+		}
+		printf("\n");
+	}
+	printf("\n");
 	return;
 }
 
