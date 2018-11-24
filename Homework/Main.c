@@ -103,6 +103,19 @@ void rug1(int width)
 
 void rug2(int width)
 {
+	int i,j;
+	for (i = 0; i <= width; i++)
+	{
+		for (j = 0; j < i; j++)
+		{
+			printf("O");
+		}
+		for (j = 0; j < width-i; j++)
+		{
+			printf("X");
+		}
+		printf("\n");
+	}
 	return;
 }
 
