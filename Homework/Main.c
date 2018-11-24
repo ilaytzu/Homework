@@ -3,8 +3,13 @@
 
 //helper fucntion defenitions
 void trig(int left, int right);
+void rug1(int width);
+void rug2(int width);
+void rug3(int width);
 
-void op1()//first option func
+
+//first option func
+void op1()
 {
 	int left, right;
 	printf("Enter 2 numbers (left and right):\n");
@@ -15,7 +20,8 @@ void op1()//first option func
 		trig(left, right);
 }
 
-void op2()//second option func
+//second option func
+void op2()
 {
 	unsigned long int id;
 	int sum = 0, temp, ticker = 0;
@@ -37,8 +43,20 @@ void op2()//second option func
 		printf("Invalid ID number\n");
 }
 
+//third option func
 void op3()
 {
+	int width;
+	scanf("%d",&width);
+	if (width >= 2 && width <= 10)
+	{
+		rug1(width);
+		rug2(width);
+		if (width % 2 == 1)
+			rug3(width);
+	}
+	else
+		printf("Error input!\n");
 	return;
 }
 
@@ -64,6 +82,33 @@ void trig(int left, int right)//calculate triangulat numbers between 2 numbers
 	{
 		printf("None\n");
 	}
+}
+
+void rug1(int width)
+{
+	int i, j;
+	for (i = 0; i < width; i++)
+	{
+		for (j = 0; j < width; j++)
+		{
+			if (i % 2 == 0 && j % 2 == 0)
+				printf("X");
+			else
+				printf("O");
+		}
+		printf("\n");
+	}
+	return;
+}
+
+void rug2(int width)
+{
+	return;
+}
+
+void rug3(int width)
+{
+	return;
 }
 
 int main()
