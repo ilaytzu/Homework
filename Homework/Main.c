@@ -7,6 +7,7 @@ void rug1(int width);
 void rug2(int width);
 void rug3(int width);
 void quad(float a, float b, float c);
+void solveeq(float a, float b, float c);
 float max(float a, float b)
 {
 	if (a > b)
@@ -79,73 +80,49 @@ void op4()
 	int a, b, c;
 	printf("Enter three numbers:\n");
 	scanf("%d %d %d",&a,&b,&c);
-	if (a == 0)
+	//a
+	if (a == 1)
+		printf("x^2");
+	else if (a == -1)
+		printf("-x^2");
+	else if (a == 0)
+		printf("");
+	else
+		printf("%dx^2", a);
+	//b
+	if (b == 1 && a != 0)
+		printf("+x");
+	else if (b == 1 && a == 0)
+		printf("x");
+	else if (b == -1)
+		printf("-x");
+	else if (b == 0)
+		printf("");
+	else if (b > 0 && a != 0)
+		printf("+%dx", b);
+	else if (b > 0 && a == 0)
+		printf("%dx", b);
+	else
+		printf("-%dx", -b);
+	//c
+	if (a != 0 || b != 0)
 	{
-		if (b == 0)
-		{
-			if (c == 0)
-			{
-				printf("0=0\n");
-				printf("Infinite solutions!\n");
-			}
-			else
-			{
-				printf("%d=0\n",c);
-				printf("No solution!\n");
-			}
-		}
-		else if(b==1)
-		{
-			if (c == 0)
-			{
-				printf("x=0\n");
-				printf("x = 0\n");
-			}
-			else if (c > 0)
-			{
-				printf("x+%d=0\n", c);
-			}
-			else
-			{
-				printf("x-%d=0\n", -c);
-
-			}
-		}
-		else if (b == -1)
-		{
-			if (c == 0)
-			{
-				printf("-x=0\n");
-				printf("x = 0\n");
-			}
-			else if (c > 0)
-			{
-				printf("-x+%d=0\n", c);
-			}
-			else
-			{
-				printf("-x-%d=0\n", -c);
-
-			}
-		}
+		if (c == 0)
+			printf("");
+		else if (c > 0)
+			printf("+%d", c);
 		else
-		{
-			if (c == 0)
-			{
-				printf("%dx=0\n", b);
-				printf("x = 0\n");
-			}
-			else if (c > 0)
-			{
-				printf("%dx+%d=0\n", b, c);
-			}
-			else
-			{
-				printf("%dx-%d=0\n", b, -c);
-			}
-			
-		}
+			printf("-%d", -c);
 	}
+	else
+	{
+		if (c == 0)
+			printf("0");
+		else
+			printf("%d", c);
+	}
+	printf(" = 0\n");
+	solveeq(a, b, c);
 	return;
 }
 
@@ -245,8 +222,35 @@ void quad(float a, float b, float c)
 	}
 	else
 	{
-		printf("x1 = %.2f + %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 + a));
-		printf("x2 = %.2f - %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 + a));
+		printf("x1 = %.2f + %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 * a));
+		printf("x2 = %.2f - %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 * a));
+	}
+}
+
+void solveeq(float a, float b, float c)
+{
+	if (a == 0 && b == 0 && c == 0)
+	{
+		printf("Infinite solutions!\n");
+		return;
+	}
+	else if (a == 0 & b == 0 && c != 0)
+	{
+		printf("No solution!\n");
+		return;
+	}
+	else if (a == 0 && b != 0)
+	{
+		if (c == 0)
+			printf("x = %.2f\n", 0);
+		else
+			printf("x = %.2f\n", -c / b);
+		return;
+	}
+	else
+	{
+		quad(a, b, c);
+		return;
 	}
 }
 
