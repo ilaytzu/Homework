@@ -6,7 +6,20 @@ void trig(int left, int right);
 void rug1(int width);
 void rug2(int width);
 void rug3(int width);
+void quad(float a, float b, float c);
+float max(float a, float b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
 
+float min(float a, float b)
+{
+	if (a > b)
+		return b;
+	return a;
+}
 
 //first option func
 void op1()
@@ -60,6 +73,7 @@ void op3()
 	return;
 }
 
+//forth option func
 void op4()
 {
 	int a, b, c;
@@ -80,23 +94,7 @@ void op4()
 				printf("No solution!\n");
 			}
 		}
-		else if(b!=1)
-		{
-			if (c == 0)
-			{
-				printf("%dx=0\n",b);
-				printf("x = 0\n");
-			}
-			else if(c>0)
-			{
-				printf("%dx+%d=0\n", b, c);
-			}
-			else
-			{
-				printf("%dx-%d=0\n", b, -c);
-			}
-		}
-		else
+		else if(b==1)
 		{
 			if (c == 0)
 			{
@@ -105,13 +103,47 @@ void op4()
 			}
 			else if (c > 0)
 			{
-				printf("x+%d=0\n",c);
+				printf("x+%d=0\n", c);
 			}
 			else
 			{
 				printf("x-%d=0\n", -c);
 
 			}
+		}
+		else if (b == -1)
+		{
+			if (c == 0)
+			{
+				printf("-x=0\n");
+				printf("x = 0\n");
+			}
+			else if (c > 0)
+			{
+				printf("-x+%d=0\n", c);
+			}
+			else
+			{
+				printf("-x-%d=0\n", -c);
+
+			}
+		}
+		else
+		{
+			if (c == 0)
+			{
+				printf("%dx=0\n", b);
+				printf("x = 0\n");
+			}
+			else if (c > 0)
+			{
+				printf("%dx+%d=0\n", b, c);
+			}
+			else
+			{
+				printf("%dx-%d=0\n", b, -c);
+			}
+			
 		}
 	}
 	return;
@@ -192,6 +224,30 @@ void rug3(int width)
 	}
 	printf("\n");
 	return;
+}
+
+//quadratic function
+void quad(float a, float b, float c)
+{
+	float x1, x2;
+	float delta = b * b - 4 * a*c;
+	if (delta == 0)
+	{
+		x1 = -b / (2 * a);
+		printf("x = %.2f\n", x1);
+	}
+	else if (delta > 0)
+	{
+		x1 = (-b + sqrtf(delta)) / (2 * a);
+		x2 = (-b - sqrtf(delta)) / (2 * a);
+		printf("x1 = %.2f\n", min(x1, x2));
+		printf("x2 = %.2f\n", max(x1, x2));
+	}
+	else
+	{
+		printf("x1 = %.2f + %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 + a));
+		printf("x2 = %.2f - %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 + a));
+	}
 }
 
 int main()
