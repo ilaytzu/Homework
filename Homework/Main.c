@@ -62,6 +62,58 @@ void op3()
 
 void op4()
 {
+	int a, b, c;
+	printf("Enter three numbers:\n");
+	scanf("%d %d %d",&a,&b,&c);
+	if (a == 0)
+	{
+		if (b == 0)
+		{
+			if (c == 0)
+			{
+				printf("0=0\n");
+				printf("Infinite solutions!\n");
+			}
+			else
+			{
+				printf("%d=0\n",c);
+				printf("No solution!\n");
+			}
+		}
+		else if(b!=1)
+		{
+			if (c == 0)
+			{
+				printf("%dx=0\n",b);
+				printf("x = 0\n");
+			}
+			else if(c>0)
+			{
+				printf("%dx+%d=0\n", b, c);
+			}
+			else
+			{
+				printf("%dx-%d=0\n", b, -c);
+			}
+		}
+		else
+		{
+			if (c == 0)
+			{
+				printf("x=0\n");
+				printf("x = 0\n");
+			}
+			else if (c > 0)
+			{
+				printf("x+%d=0\n",c);
+			}
+			else
+			{
+				printf("x-%d=0\n", -c);
+
+			}
+		}
+	}
 	return;
 }
 
