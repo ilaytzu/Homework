@@ -128,7 +128,7 @@ void op4()
 
 void trig(int left, int right)//calculate triangulat numbers between 2 numbers
 {
-	int n = 1, found = 0, Tn;
+	int n = 1, found = 0, Tn = 1;
 	do
 	{
 		Tn = (n * (n + 1)) / 2;
@@ -206,12 +206,12 @@ void rug3(int width)
 //quadratic function
 void quad(float a, float b, float c)
 {
-	float x1, x2;
+	float x1, x2, re, im;
 	float delta = b * b - 4 * a*c;
 	if (delta == 0)
 	{
 		x1 = -b / (2 * a);
-		printf("x = %.2f\n", x1);
+		printf("x1 = %.2f\n", x1);
 	}
 	else if (delta > 0)
 	{
@@ -222,8 +222,17 @@ void quad(float a, float b, float c)
 	}
 	else
 	{
-		printf("x1 = %.2f + %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 * a));
-		printf("x2 = %.2f - %.2fi\n", (-b / (2 * a)), (sqrtf(-delta)) / (2 * a));
+		re = (-b / (2 * a));
+		im = (sqrtf(-delta)) / (2 * a);
+		if (b = 0) {
+			printf("x1 = %.2f + %.2fi\n", re, im);
+			printf("x2 = %.2f - %.2fi\n", re, im);
+		}
+		else
+		{
+			printf("x1 = %.2fi\n", im);
+			printf("x2 = -%.2fi\n", im);
+		}
 	}
 }
 
@@ -242,9 +251,9 @@ void solveeq(float a, float b, float c)
 	else if (a == 0 && b != 0)
 	{
 		if (c == 0)
-			printf("x = %.2f\n", 0);
+			printf("x1 = %.2f\n", 0);
 		else
-			printf("x = %.2f\n", -c / b);
+			printf("x1 = %.2f\n", -c / b);
 		return;
 	}
 	else
