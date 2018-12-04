@@ -8,6 +8,7 @@ void rug2(int width);
 void rug3(int width);
 void quad(float a, float b, float c);
 void solveeq(float a, float b, float c);
+
 float max(float a, float b)
 {
 	if (a > b)
@@ -67,7 +68,9 @@ void op3()
 		rug1(width);
 		rug2(width);
 		if (width % 2 == 0)
+		{
 			rug3(width);
+		}
 	}
 	else
 		printf("Error input!\n");
@@ -112,14 +115,11 @@ void op4()
 		else if (c > 0)
 			printf("+%d", c);
 		else
-			printf("-%d", -c);
+			printf("%d", c);
 	}
 	else
 	{
-		if (c == 0)
-			printf("0");
-		else
-			printf("%d", c);
+		printf("%d", c);
 	}
 	printf(" = 0\n");
 	solveeq(a, b, c);
@@ -180,13 +180,13 @@ void rug2(int width)
 		}
 		printf("\n");
 	}
-	printf("\n");
 	return;
 }
 
 //rug pattern 3
 void rug3(int width)
 {
+	printf("\n");
 	int i, j;
 	for (i = 0; i < width; i++)
 	{
@@ -199,13 +199,13 @@ void rug3(int width)
 		}
 		printf("\n");
 	}
-	printf("\n");
 	return;
 }
 
 //quadratic function
 void quad(float a, float b, float c)
 {
+	int bi = b;
 	float x1, x2, re, im;
 	float delta = b * b - 4 * a*c;
 	if (delta == 0)
@@ -222,16 +222,18 @@ void quad(float a, float b, float c)
 	}
 	else
 	{
-		re = (-b / (2 * a));
+		re = -b;
+		re /= (2 * a);
 		im = (sqrtf(-delta)) / (2 * a);
-		if (b = 0) {
-			printf("x1 = %.2f + %.2fi\n", re, im);
-			printf("x2 = %.2f - %.2fi\n", re, im);
+		if (bi != 0) 
+		{
+			printf("x1 = %.2f - %.2fi\n", re, im);
+			printf("x2 = %.2f + %.2fi\n", re, im);
 		}
 		else
 		{
-			printf("x1 = %.2fi\n", im);
-			printf("x2 = -%.2fi\n", im);
+			printf("x1 = -%.2fi\n", im);
+			printf("x2 = %.2fi\n", im);
 		}
 	}
 }
@@ -290,7 +292,6 @@ int main()
 			printf("No such option!\n");
 			break;
 		}
-	} while (a!=-1);
-	system("pause");
+	} while (a != -1);
 	return 0;
 }
